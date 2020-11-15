@@ -1,0 +1,9 @@
+# -*- conf -*-
+
+# Backup files.
+\#*#
+.#*
+*~
+*.bak
+
+#[eof]
