@@ -1,0 +1,105 @@
+* {
+    -webkit-touch-callout: none;
+    /* user-select: none; */
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+html {
+    box-sizing: border-box;
+    XXoverflow: hidden;
+    height: 100%;
+    height: 500px;
+    border: 4px solid black;
+}
+
+button, pre {
+    padding: 0 2px;
+}
+
+pre { margin: 2px 0; }
+
+#debug {
+    min-height: 3em;
+    max-height: 350px;
+    max-width: 500px;
+    user-select: default;
+    border: 2px solid black;
+    overflow: auto;
+}
+
+/******************************************************************************/
+
+#state, #state div {
+    border: 1px solid black;
+    padding: 1px;
+    white-space: nowrap;
+}
+.window { padding-left: 2px !important; }
+
+
+#state {
+    border: 0;
+    overflow: auto;
+    max-width: 500px;
+}
+
+
+.tab {
+    margin: 0;
+    margin-right: 2px;
+    padding: 0 !important;
+    overflow: hidden;
+}
+.window { margin: 0; margin-right: 2px; }
+
+/* container */
+/* windows (inside container) and tabs (inside windows) are put horizontally */
+#state, .window, .tab {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+/* pages (inside tabs) are put vertically */
+.tab {
+    flex-direction: column;
+    width: 3em;
+    border: 0 !important;
+}
+.window {
+    align-items: stretch;
+    background: #fff;
+}
+
+.tab:hover .page:last-child,
+.page:hover {
+    background: #8888;
+}
+.page,
+.page:hover ~ .page:last-child {
+    background: #ddd;
+}
+
+.tab:hover {
+    outline: 4px solid #0004;
+    z-index: 200;
+}
+
+.page {
+    border: 0 !important;
+    margin: 0 !important;
+    height: calc(1rem * 1.5);
+    width: 100%;
+    margin-bottom: 1px !important;
+}
+
+button#clear button {
+    background: red !important;
+}
+
+.closed {
+    opacity: .5;
+}
+
+/*[eof]*/

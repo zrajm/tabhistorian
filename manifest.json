@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "name": "Tab Experiments",
+    "description": "Experimentings with tab history.",
+    "version": "0.0.1",
+    "browser_action": {
+        "default_icon": {
+            "19": "img/19.png",
+            "38": "img/38.png"
+        },
+        "default_popup": "popup.html"
+    },
+    // Background script does not have access to DOM.
+    "background": {
+        "scripts": [ "common.js", "background.js" ],
+        "persistent": false
+    },
+    "icons": {
+        "128": "img/128.png",
+        "48": "img/48.png",
+        "32": "img/32.png",
+        "16": "img/16.png",
+        "38": "img/38.png",
+        "19": "img/19.png"
+    },
+    "permissions": [
+        //"sessions",
+        //"tabs",
+        //"webNavigation",
+        "activeTab",      // temporary access to tabs
+        //"history",          // for: chrome.history
+        "storage",          // for: chrome.storage
+        "tabs"              // for: chrome.tabs.onUpdated.addListener (background.js)
+    ]
+}
