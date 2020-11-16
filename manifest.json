@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
-    "name": "Tab Experiments",
-    "description": "Experimentings with tab history.",
+    "name": "Tab Historian",
+    "description": "Save/restore tabs and their history.",
     "version": "0.0.1",
     "browser_action": {
         "default_icon": {
@@ -10,6 +10,7 @@
         },
         "default_popup": "popup.html"
     },
+    "options_page": "options.html",
     // Background script does not have access to DOM.
     "background": {
         "scripts": [ "common.js", "background.js" ],
