@@ -1,0 +1,32 @@
+#+STARTUP: overview hidestars -*- org -*-
+
+* TODO Resurrect tab                                    :ABSOLUTELY_REQUIRED:
+** TODO How to restore tab with history?
+   Use pushstate?
+
+   Or could this work (inside popup, executeScript() is needed).
+   $('#color').click(() => {
+       chrome.tabs.executeScript({
+           code: 'document.location = myNewUrl;'
+       });
+   });
+* TODO Populate on startup                                           :NEEDED:
+  When started add all the current pages to the menu -- can't add history, but
+  can add the current page. So do that!
+* TODO Handle back/forward navigation                                :NEEDED:
+** TODO When user uses back button, update history if needed
+   Since we can't read the tab history at startup, our state will (sometimes)
+   be incomplete, when a user goes 'back' to a page we didn't know of before,
+   add that correct place in the current tab history.
+** TODO Keep track of position in tab history
+   Keep track of 'future history', ie when the user has pressed 'back' this
+   should be show in the menu.
+* TODO Google sync
+* TODO Highlight current tab & window in popup                          :GUI:
+* TODO Show thumbnail of tabs in popup                                  :GUI:
+* TODO Hovering over page in popup should overlay more information      :GUI:
+* TODO Copy history when cloning/opening in background
+  This goes into `background.js` -- find FIXME in code.
+  When there is a 'from' field, copy the history of the from.
+  (But keep reference to where it was copied from?)
+* [eof]

@@ -1,17 +1,3 @@
-// FIXME: Restoring a tab!!!!!
-// FIXME: How to restore tab with history? (pushstate?)
-
-// FIXME: When started, populate with all the currently open tabs (without history).
-// FIXME: When going back in a tab's history, if the previous history event doesn't exist -- add it.
-// FIXME: Add marker in history for tab position, move that when going back in history.
-// FIXME: Syncing!
-
-// FIXME: When a tab is closed, add an entry specifying that.
-
-// FIXME: Show thumbnail of tabs in popup.
-// FIXME: Hovering over page in popup should overlay more information.
-
-
 // When user navigates around, save current state.
 function do_thingy(tabId, changeInfo, tab) {
     // Can be: 'unloaded', 'loading', 'complete' or undefined.

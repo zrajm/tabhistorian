@@ -1,16 +1,6 @@
-// FIXME: Hilight current tab & window in popup.
-
 // chrome.tabs.goForward -- to navigate history?
 // chrome.tabs.goBack
 // chrome.tabs.captureVisibleTab -- grab screenshot of currently active tab
-
-// Will this work to change url inside a tab, and add it to the tab's history?
-// $('#color').click(() => {
-//     chrome.tabs.executeScript({
-//         code: 'document.location = myNewUrl;'
-//     });
-// });
-
 
 function debug(...args) {
     let text = args.map((x) => (
