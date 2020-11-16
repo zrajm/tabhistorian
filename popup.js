@@ -2,13 +2,44 @@
 // chrome.tabs.goBack
 // chrome.tabs.captureVisibleTab -- grab screenshot of currently active tab
 
-function debug(...args) {
-    let text = args.map((x) => (
-        typeof x === 'string' ? x : JSON.stringify(x, 0, 2)
-    )).join(' ') + '\n';
-    $('#debug').append(escapeHtml(text));
-    console.log(text);
-}
+
+// Debug thingy. All output is stored, so that messages may be read at a later
+// time. debug('msg') may be called before invoking debug.init().
+var debug = (() => {
+    let $element, queue = '', key = '_DEBUG';
+
+    // Display messages.
+    function debug(...msgs) {
+        // Prettify and add messages to output queue.
+        queue += msgs.map((x) => (
+            typeof x === 'string' ? x : JSON.stringify(x, 0, 2)
+        )).join(' ') + '\n';
+
+        // At first calm moment, save output queue.
+        setTimeout(writeQueue, 0);
+        function writeQueue() {
+            if (queue) {          // if queue isn't already processed
+                let txt = queue;  //   remember data to process
+                queue = '';       //     and clear queue
+                save(key, (oldTxt = '') => oldTxt + txt);
+            }
+        }
+    }
+
+    // Erase all messages.
+    debug.clear = function () { save(key, ''); };
+
+    // Initialize element and update HTML output on changes.
+    debug.init  = function (cssSelector) {
+        $element = $(cssSelector).click(debug.clear);
+        load(key, redraw);
+        onChange(key, redraw);
+        function redraw(txt = '') {
+            $element.text(txt);
+        };
+    };
+    return debug;
+})();
 
 // Load stored tabs.
 function drawTabs($e) {
@@ -181,6 +212,7 @@ function main() {
         });
     });
 
+    debug.init('#debug');
     drawTabs($('#state'));
 }
 

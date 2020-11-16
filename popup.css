@@ -7,25 +7,27 @@
 }
 html {
     box-sizing: border-box;
-    XXoverflow: hidden;
     height: 100%;
     height: 500px;
     border: 4px solid black;
 }
 
 button, pre {
-    padding: 0 2px;
+    margin: 1px 2px;
+    padding: 3px 5px;
+    background: #eee;
+    border: 1px solid #555;
+    border-radius: 2px;
 }
-
-pre { margin: 2px 0; }
+button:hover, pre:hover {
+    filter: brightness(.9);
+}
 
 #debug:empty { display: none; }
 #debug {
-    min-height: 3em;
     max-height: 350px;
     max-width: 500px;
     user-select: default;
-    border: 2px solid black;
     overflow: auto;
 }
 

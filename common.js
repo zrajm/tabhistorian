@@ -34,6 +34,17 @@ function save(key, value) {
     });
 }
 
+// Invoke hook() whenever value <key> is modified. The hook is called with the
+// new value as its first arg, the old value as its second arg.
+function onChange(key, hook) {
+    chrome.storage.local.onChanged.addListener(function(changes) {
+        if (changes.hasOwnProperty(key)) {
+            var x = changes[key];
+            hook(x.newValue, x.oldValue);
+        }
+    });
+}
+
 // Given a session-specific Chrome windowId + tabId, invokes a callback
 // function with the storeId as the only argument. If either winId or tabId is
 // undefined the callback will be invoked argument 'undefined'.
