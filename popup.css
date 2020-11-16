@@ -19,6 +19,7 @@ button, pre {
 
 pre { margin: 2px 0; }
 
+#debug:empty { display: none; }
 #debug {
     min-height: 3em;
     max-height: 350px;

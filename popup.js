@@ -6,9 +6,7 @@ function debug(...args) {
     let text = args.map((x) => (
         typeof x === 'string' ? x : JSON.stringify(x, 0, 2)
     )).join(' ') + '\n';
-    $('#debug')
-        .append(escapeHtml(text))
-        .removeAttr('hidden');
+    $('#debug').append(escapeHtml(text));
     console.log(text);
 }
 
